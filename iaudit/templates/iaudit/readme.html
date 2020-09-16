@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% block content %}
+
+
+<html>
+    <body>
+        <h3>Instructions for Windows:</h3>
+        <ol>
+            <li> Download
+                <a href="https://drive.google.com/file/d/1VdjLDWJjBlsWVDNuNW4gMCCO1nRUPNaD/view?usp=sharing">WindowsScan.bat</a>
+            </li>
+            <li>Double click to launch the script. Give it a few minutes to complete.</li>
+            <li>Wait for the command to execute succefully. Locate the scan result file <a style="background-color:#f1f1f1;font-family:monospace;"> InstalledAppsTerminal.csv</a> on your desktop</li>
+            <li>Upload the scan results <a href={% url 'home' %}> here</a></li>
+
+        </ol>
+        <h3>Instructions for Mac:</h3>
+        <ol>
+            <li>Use the keyboard shortcut<a style="background-color:#f1f1f1;font-family:monospace;"> Command + Space</a> to open the terminal.</li>
+            <li>copy and paste the follwoing command: <a style="background-color:#f1f1f1;font-family:monospace;"> "  ls -h /Applications/  > ~/Desktop/InstalledAppsTerminal.csv  "</a>
+            in your terminal window</li>
+            <li>Wait for the command to execute succefully. Locate the scan result file <a style="background-color:#f1f1f1;font-family:monospace;"> InstalledAppsTerminal.csv</a> on your desktop</li>
+            <li>Upload the scan results <a href={% url 'home' %}> here</a></li>
+        </ol>
+    </body>
+</html>
+
+{% endblock content %}

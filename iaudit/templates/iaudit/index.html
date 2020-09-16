@@ -1,12 +1,14 @@
+{% extends 'base.html' %}
 {% load socialaccount %}
-{% providers_media_js %}
+
+{% block content %}
 <html>
   <head>
     <meta charset="UTF-8">
     <title>Google Registration</title>
   </head>
   <body>
-  <h1>Upload Scan Results</h1>
+  <h1>Grofers Software Compliance</h1>
   {% if user.is_authenticated %}
   <p>Welcome, {{ user.username }} !</p>
 
@@ -30,10 +32,11 @@
     {{profile.name}}
     {% endfor %}
  
-  {% else %}
-  <h1>Grofers Software Compliance</h1>
+  {% else %}  
+  <h4>Upload Your Scan Results Here</h4>
   <a href="{% provider_login_url 'google' %}">Login with Grofers Account</a>
   {% endif %}
 
   </body>
 </html>
+{% endblock content %}

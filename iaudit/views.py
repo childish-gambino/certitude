@@ -3,16 +3,15 @@ from django.shortcuts import render
 from django.contrib import messages
 from iaudit.models import ScanCSV
 
-
 # Create your views here.
 # one parameter named request
 def scancsv_upload(request):
     # declaring template
     template = "iaudit/index.html"
     data = ScanCSV.objects.all()
-# prompt is a context variable that can have different values      depending on their context
+# prompt is a context variable that can have different values depending on their context
     prompt = {
-        'order': 'Order of the CSV should be name, email, address,    phone, profile',
+        'order': 'Only accepts one column that is appname',
         'scancsv': data
               }
     # GET request returns the value of the data with the specified key.
