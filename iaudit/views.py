@@ -14,6 +14,7 @@ def scancsv_upload(request):
     if request.method == "GET":
         return render(request, template, prompt)
     csv_file = request.FILES['file']
+    filename = ((request.FILES['file'].name)[0:-4])
     context = {}
 
     if request.method == "POST":
@@ -26,6 +27,7 @@ def scancsv_upload(request):
                 _, created = ScanCSV.objects.update_or_create(
                     appname=column[0],
                     email=str(request.user.email),
+                    serialnumber=filename,
                 )
             messages.success(request, "Uploaded Successfully")
         except Exception as e:

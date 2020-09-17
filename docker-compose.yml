@@ -14,5 +14,5 @@ services:
             - db
     db:
         image: nouchka/sqlite3
-        volumes: 
-            -    
+        volumes:
+            - 
