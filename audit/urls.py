@@ -20,11 +20,11 @@ from iaudit.views import scancsv_upload
 from allauth.account import views as allauth_views
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="index.html"), name='home'),
+    # path('', TemplateView.as_view(template_name="index.html"), name='home'),
     path('readme/', TemplateView.as_view(template_name="iaudit/readme.html"), name='readme'),
 
     path('admin/', admin.site.urls),
     # path('accounts/logout', include('allauth.urls'),name='logout'),
     path('accounts/', include('allauth.urls')),
-    path('upload-csv/', scancsv_upload),
+    path('', scancsv_upload, name='home'),
 ]
