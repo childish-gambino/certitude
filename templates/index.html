@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<p>Welcome, {{ user.username }} !</p>
+
+{% if form.error %}
+<p>Woops! Something went wrong. Please try again</p>
+{% else %}
+<p>Uploaded Successfully! (hey macarena!!)</p>
+
+{% endif %}
+
+<form action="/upload-csv/" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label for="file1"> Upload a file</label>
+  <input type="file" id="file1" name="file">
+  <small>Only accepts CSV files</small>
+  <button type="submit">Upload</button>
+</form>
+
+{% else %}
+<a href="{% provider_login_url 'google' %}">Login with Grofers Account</a>
+{% endif %}
+{% endblock content %}

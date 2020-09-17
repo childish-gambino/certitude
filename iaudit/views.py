@@ -7,7 +7,7 @@ from iaudit.models import ScanCSV
 # one parameter named request
 def scancsv_upload(request):
     # declaring template
-    template = "iaudit/index.html"
+    template = "index.html"
     data = ScanCSV.objects.all()
 # prompt is a context variable that can have different values depending on their context
     prompt = {
@@ -30,5 +30,8 @@ def scancsv_upload(request):
             appname=column[0],
             # email=column[1],
         )
-    context = {}
+    context = {
+        "errors": "Woops!",
+        "success": "Uploaded Successfully"
+        }
     return render(request, template, context)
