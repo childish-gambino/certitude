@@ -11,6 +11,13 @@ def scancsv_upload(request):
 # prompt is a context variable that can have different values depending on their context
     prompt = {'order': 'Only accepts one column that is appname', 'scancsv': data}
     # GET request returns the value of the data with the specified key.
+
+    try:
+        just_logged_out = request.session.get('just_logged_out',False)
+    except:
+        just_logged_out = False
+
+
     if request.method == "GET":
         return render(request, template, prompt)
     csv_file = request.FILES['file']

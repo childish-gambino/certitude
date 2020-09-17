@@ -20,9 +20,10 @@
         <h3>Instructions for Mac:</h3>
         <ol>
             <li>Use the keyboard shortcut<a style="background-color:#f1f1f1;font-family:monospace;"> Command + Space</a> to open the terminal.</li>
-            <li>copy and paste the follwoing command: <a style="background-color:#f1f1f1;font-family:monospace;">ls -h /Applications/  > ~/Desktop/InstalledAppsTerminal.csv</a>
-            in your terminal window</li>
-            <li>Wait for the command to execute succefully. Locate the scan result file <a style="background-color:#f1f1f1;font-family:monospace;"> InstalledAppsTerminal.csv</a> on your desktop</li>
+            <li>copy and paste the follwoing command in the terminal window: 
+                <br> <a style="background-color:#f1f1f1;font-family:monospace;">ls -h /Applications/ > ~/Desktop/GRHX$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}').csv</a>
+            </li>
+            <li>Wait for the command to execute successfully. Look for the file name starting with <a style="background-color:#f1f1f1;font-family:monospace;"> GRHX____.csv</a> on your desktop</li>
             <li>Upload the scan results <a href={% url 'home' %}> here</a></li>
         </ol>
     </body>
