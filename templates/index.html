@@ -6,12 +6,15 @@
 {% if user.is_authenticated %}
 <p>Welcome, {{ user.username }} !</p>
 
-{% if form.error %}
-<p>Woops! Something went wrong. Please try again</p>
-{% else %}
-<p>Uploaded Successfully! (hey macarena!!)</p>
+{% for message in messages %}
 
-{% endif %}
+<div class="alert alert-success">
+  <a class="close" href="#" data-dismiss="alert">×</a>
+
+  {{ message }}
+
+</div>
+{% endfor %}
 
 <form action="/upload-csv/" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
@@ -19,6 +22,7 @@
   <input type="file" id="file1" name="file">
   <small>Only accepts CSV files</small>
   <button type="submit">Upload</button>
+
 </form>
 
 {% else %}
