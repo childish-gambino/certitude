@@ -1,13 +1,25 @@
-FROM python:3.7
+# FROM python:3.7
 
+# pull official base image
+FROM python:3.8.3-alpine
+
+
+# setting environment variables
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# installing psycopg2 dependencies
+RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
 
+# setting work dir
 WORKDIR /code
 
+# installing dependencies
+RUN apt-get update && apt-get install vim
+RUN pip install --upgrade pip
 COPY Pipfile Pipfile.lock /code/
 RUN pip install pipenv && pipenv install --system
 
+# copying code base
 COPY . /code/
