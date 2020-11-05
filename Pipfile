@@ -10,6 +10,9 @@ django = "*"
 django-allauth = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-debug-toolbar = "*"
+psycopg2-binary = "==2.8.3"
+awsebcli = "*"
 
 [requires]
 python_version = "3.7"

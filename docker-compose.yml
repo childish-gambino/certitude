@@ -3,8 +3,8 @@ version:  '3.7'
 services:
     web:
         build: .
-        # command: python /code/manage.py runserver 0.0.0.0:8000
-        command: gunicorn audit.wsgi -b 0.0.0.0:8000
+        command: python /code/manage.py runserver 0.0.0.0:8000
+        # command: gunicorn audit.wsgi -b 0.0.0.0:8000
 
         volumes:
             - .:/code
@@ -14,10 +14,19 @@ services:
         depends_on:
             - db
     db:
-        image: nouchka/sqlite3:latest
+        # image: nouchka/sqlite3:latest
+        image: postgres:12.0-alpine
+        ports:
+            - 5433:5432
+
         volumes:
-            - ./dbfromtheotherside/db.sqlite3/:/code/db.sqlite3
+            # - ./dbfromtheotherside/db.sqlite3/:/code/db.sqlite3
+            - postgres_data:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=hello_django
+            - POSTGRES_PASSWORD=hello_django
+            - POSTGRES_DB=hello_django_dev
 
 volumes:
-    dbfromtheotherside:
+    postgres_data:
 
