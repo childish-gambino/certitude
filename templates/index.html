@@ -19,13 +19,16 @@
 
 <form action="/" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
-  <label for="file1"> Upload a file</label>
-  <input type="file" id="file1" name="file">
-  <small>Only accepts CSV files</small>
-  <button type="submit">Upload</button>
+
+<ul><br><b>Step 1:</b> Go to <a href={% url 'readme' %} target="_blank">Readme Page</a> and follow the instruction.</br></ul>
+<ul>  <br><b>Step 2:</b> Attach the result file generated during <em>step 1</em> (It's on your desktop, name starting with AUDI___)</br>
+  <!-- <label for="file1"> Browse Now</label> -->
+  <input type="file" id="file1" name="file"></ul>
+
+<ul>  <br><b>Step 3:</b>  Once the file is selected. Upload the results by clicking the upload button.</br>
+  <button type="submit">Upload</button></ul>
 
 </form>
-
 {% else %}
 <!-- <div id="my-signin2"></div>
 <script>

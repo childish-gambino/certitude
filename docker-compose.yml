@@ -1,10 +1,10 @@
-version:  '3.7'
+version:  '3.3'
 
 services:
     web:
         build: .
         # command: python /code/manage.py runserver 0.0.0.0:8000
-        command: gunicorn audit.wsgi -b 0.0.0.0:8000
+        command: gunicorn --certfile=./server.cert --keyfile=./server.key audit.wsgi -b 0.0.0.0:8000
 
         volumes:
             - .:/code
