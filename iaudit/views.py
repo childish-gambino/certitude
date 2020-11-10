@@ -3,16 +3,21 @@ import csv, io
 import json
 from django.shortcuts import render
 from django.contrib import messages
-from iaudit.models import ScanCSV
+from iaudit.models import HardwareEntitlement, ScanCSV
+
+from rest_framework import generics
+from iaudit.serializers import HardwareEntitlementSerializer
+from rest_framework import viewsets
+
 from django.db.models import Count, Q
 from pprint import pprint
 # import codecs from django.utils.encoding
 # Create your views here.
 # one parameter named request
-def scancsv_upload(request):
+def user_landed(request):
     template = "index.html"
     data = ScanCSV.objects.all()
-# prompt is a context variable that can have different values depending on their context
+    # prompt is a context variable that can have different values depending on their context
     prompt = {'order': 'Only accepts one column that is appname', 'scancsv': data}
     # GET request returns the value of the data with the specified key.
     try:
@@ -48,3 +53,14 @@ def scancsv_upload(request):
             print("WOOOPS!!!",e)
             messages.warning(request,"THIS IS NOT A CSV FILE")
         return render(request, template, context)
+
+
+class ListHardwareEntitlement(generics.ListCreateAPIView):
+        queryset = HardwareEntitlement.objects.all()
+        serializer_class = HardwareEntitlementSerializer
+
+class DetailedHardwareEntitlement(generics.RetrieveUpdateDestroyAPIView):
+    queryset = HardwareEntitlement.objects.all().order_by('id')
+    serializer_class = HardwareEntitlementSerializer
+
+

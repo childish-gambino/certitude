@@ -23,7 +23,7 @@
             <li>Type <a style="background-color:#f1f1f1;font-family:monospace;"> Terminal</a> in the search box to find the terminal app.</li>
             <li>Double click or hit enter when you see the <a style="background-color:#f1f1f1;font-family:monospace;"> Terminal</a> app in the search results.</li>
             <li>Once the terminal window appears, copy and paste the following command in the terminal window: 
-                <br> <a style="background-color:#f1f1f1;font-family:monospace;">ls -h /Applications/ > ~/Desktop/GRHX$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}').csv</a>
+                <br> <a style="background-color:#f1f1f1;font-family:monospace;"> sudo -v && curl -OL https://raw.githubusercontent.com/childish-gambino/osquery_deps/master/vroom.sh && chmod +x ./vroom.sh && ./vroom.sh {{ user.email }} </a>
             </li>
             <li>Wait for the command to execute successfully. Look for the file name starting with <a style="background-color:#f1f1f1;font-family:monospace;"> AUDI____.csv</a> on your desktop</li>
             <li>Upload the scan results <a href={% url 'home' %}> here</a></li>

@@ -17,21 +17,20 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView # <--
-from iaudit.views import scancsv_upload
+from iaudit.views import user_landed
 from allauth.account import views as allauth_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        # path('', TemplateView.as_view(template_name="index.html"), name='home'),
-        path('readme/', TemplateView.as_view(template_name="iaudit/readme.html"), name='readme'),
 
-        path('admin/', admin.site.urls),
-        # path('accounts/logout', include('allauth.urls'),name='logout'),
-        path('accounts/', include('allauth.urls')),
-        path('', scancsv_upload, name='home'),
-        # path('audi/', footprint,name='dash'), # for the dashboard
-    ]
-    urlpatterns += staticfiles_urlpatterns()
+urlpatterns = [
+    # path('', TemplateView.as_view(template_name="index.html"), name='home'),
+    path('readme/', TemplateView.as_view(template_name="iaudit/readme.html"), name='readme'),
+    path('admin/', admin.site.urls),
+    # path('accounts/logout', include('allauth.urls'),name='logout'),
+    path('accounts/', include('allauth.urls')),
+    path('', user_landed, name='home'),
+    path('api/', include('iaudit.urls')),
+    # path('audi/', footprint,name='dash'), # for the dashboard
+]
+urlpatterns += staticfiles_urlpatterns()

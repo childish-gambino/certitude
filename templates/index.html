@@ -4,7 +4,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<p>Welcome, {{ user.username }} !</p>
+<p>Welcome, {{ user.email }} !</p>
 
 {% for message in messages %}
 
