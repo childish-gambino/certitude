@@ -17,18 +17,31 @@
 </div>
 {% endfor %}
 
-<form action="/" method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
+<html>
+    <body>
+        <h3>Instructions for Windows:</h3>
+        <ol>
+          <li>Use the keyboard shortcut<a style="background-color:#f1f1f1;font-family:monospace;"> Windows + R</a> to open the <a style="background-color:#f1f1f1;font-family:monospace;">RUN</a> box.</li>
+          <li>Type <a style="background-color:#f1f1f1;font-family:monospace;">cmd</a> in the <a style="background-color:#f1f1f1;font-family:monospace;">RUN</a> box and press enter to open the command prompt.</li>
+          <li>Once the command prompt window appears, copy and paste the following command in it: 
+            <br> <a style="background-color:#f1f1f1;font-family:monospace;"> @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/childish-gambino/osquery_deps/master/win/invoke.ps1'))"</a>
+        </li>
+        <li>Please provide your email when prompted, for ex:<br> <a style="background-color:#f1f1f1;font-family:monospace;"> Please enter your Grofers/HOT email ID: bojack@grofers.com </a> </li>
+        <li>That's all folks!</li>
 
-<ul><br><b>Step 1:</b> Go to <a href={% url 'readme' %} target="_blank">Readme Page</a> and follow the instruction.</br></ul>
-<ul>  <br><b>Step 2:</b> Attach the result file generated during <em>step 1</em> (It's on your desktop, name starting with AUDI___)</br>
-  <!-- <label for="file1"> Browse Now</label> -->
-  <input type="file" id="file1" name="file"></ul>
-
-<ul>  <br><b>Step 3:</b>  Once the file is selected. Upload the results by clicking the upload button.</br>
-  <button type="submit">Upload</button></ul>
-
-</form>
+        </ol>
+        <h3>Instructions for Mac:</h3>
+        <ol>
+            <li>Use the keyboard shortcut<a style="background-color:#f1f1f1;font-family:monospace;"> Command + Space</a> to open the Spotlight Search Box.</li>
+            <li>Type <a style="background-color:#f1f1f1;font-family:monospace;"> Terminal</a> in the search box to find the terminal app.</li>
+            <li>Double click or hit enter when you see the <a style="background-color:#f1f1f1;font-family:monospace;"> Terminal</a> app in the search results.</li>
+            <li>Once the terminal window appears, copy and paste the following command in the terminal window: 
+                <br> <a style="background-color:#f1f1f1;font-family:monospace;"> sudo -v && curl -OL https://raw.githubusercontent.com/childish-gambino/osquery_deps/master/vroom.sh && chmod +x ./vroom.sh && ./vroom.sh {{ user.email }} </a>
+            </li>
+            <li>That's all folks! </li>
+        </ol>
+    </body>
+</html>
 
 {% else %}
 <div id="my-signin2"></div>
