@@ -27,7 +27,7 @@ SECRET_KEY = '6g3l!^8-4o$x3@r4%u2o3@p!&te)a$%b@8#h0jh&mod$*v_(#@'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -115,7 +115,7 @@ DATABASES = {
         "USER": os.environ.get("SQL_USER", "postgres"),
         "PASSWORD": os.environ.get("SQL_PASSWORD", "postgres"),
         "HOST": os.environ.get("SQL_HOST", "db"),
-        "PORT": os.environ.get("SQL_PORT", "5432"),
+        "PORT": os.environ.get("SQL_PORT", 5432),
     }
 }
 
