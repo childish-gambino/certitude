@@ -6,29 +6,68 @@
 
 
 <html>
-    <body>
-        <h3>Instructions for Windows:</h3>
-        <ol>
-            <li> Download
-                <a href="https://drive.google.com/file/d/1VdjLDWJjBlsWVDNuNW4gMCCO1nRUPNaD/view?usp=sharing">WindowsScan.bat</a>
-            </li>
-            <li>Double click to launch the script. Give it a few minutes to complete.</li>
-            <li>Wait for the command to execute successfully. Look for the file name starting with <a style="background-color:#f1f1f1;font-family:monospace;"> AUDI____.csv</a> on your desktop</li>
-            <li>Upload the scan results <a href={% url 'home' %}> here</a></li>
 
-        </ol>
-        <h3>Instructions for Mac:</h3>
-        <ol>
-            <li>Use the keyboard shortcut<a style="background-color:#f1f1f1;font-family:monospace;"> Command + Space</a> to open the Spotlight Search Box.</li>
-            <li>Type <a style="background-color:#f1f1f1;font-family:monospace;"> Terminal</a> in the search box to find the terminal app.</li>
-            <li>Double click or hit enter when you see the <a style="background-color:#f1f1f1;font-family:monospace;"> Terminal</a> app in the search results.</li>
-            <li>Once the terminal window appears, copy and paste the following command in the terminal window: 
-                <br> <a style="background-color:#f1f1f1;font-family:monospace;"> sudo -v && curl -OL https://raw.githubusercontent.com/childish-gambino/osquery_deps/master/vroom.sh && chmod +x ./vroom.sh && ./vroom.sh {{ user.email }} </a>
-            </li>
-            <li>Wait for the command to execute successfully. Look for the file name starting with <a style="background-color:#f1f1f1;font-family:monospace;"> AUDI____.csv</a> on your desktop</li>
-            <li>Upload the scan results <a href={% url 'home' %}> here</a></li>
-        </ol>
-    </body>
+<body>
+    <h1>Osquery Rollout FAQs:-</h1>
+    <ol>
+
+        <p>
+            <strong>Q.1 What is osquery?</strong>
+            <br>Osquery is cross platform operating system instrumentation framework. For all practice purposes is a
+            small agent that sits on a machines and exposes key matrices related to system performance, security and
+            compliance. You can read more about it here. With help of osquary we will be able to get a better visibility
+            of our End User Computing security and performance analytics.
+        </p>
+
+        <p>
+            <strong>Q.2 Why now?</strong>
+            <br>
+            Currently we don’t have any capability to run any sort of org wide audits on our End User Machines. This
+            puts us at a risk of not being able to take actions proactively. This has specially become even harder ever
+            since we started working remotely.
+        </p>
+
+        <p>
+            <strong>Q.3 What data is collected? </strong>
+            <br>
+            You can view all of the supported tables and schema information: running processes, user logins, loaded
+            kernel modules, open network connections, browser plugins, hardware events, file hashes, sockets, mounts,
+            ports, storage volumes, packages etc. You can refer to the <a href="https://osquery.io/schema/4.5.1/">latest
+                documentation</a> to see all the tables that it supports
+        </p>
+
+
+
+
+
+        <p>
+            <strong>Q.4 How is this not spying? </strong>
+            <br> There are no explicit privilege escalation methods built into osquery. OSQuery does not log any of the information anywhere. All it does is query the data that already exists in deep corners of your system’s config files, on the fly. It also makes a clear distinction between what data can be queried and makes sure it never invades user privacy.
+
+
+            OSQuery is a reputed open source project that’s part of <a
+                href="https://www.linuxfoundation.org/press-release/2019/06/the-linux-foundation-announces-intent-to-form-new-foundation-to-support-osquery-community/">Linux
+                Foundation</a> now. 
+
+                <p>
+                    In their own words: <em> ”The osquery community respects developer and user privacy! We include a "non-goal"
+                    of
+                    exposing sensitive information like browsing history within tables. The osquery tools include 0 callback
+                    requests and 0 auto-updating, auto-diagnostic capabilities.”
+                    In their own words </em>
+                </p>
+        </p>
+
+        <p>
+            <strong>Q.5 Where is the osquery road map?</strong>
+            <br>We would initially be using OSQuery of general End User Inventory logging, running proactive IT audits
+            and
+            End Point Security Incident management. We later plan to use it for DLP but that’s a long way ahead.
+        </p>
+
+    </ol>
+</body>
+
 </html>
 
 {% endblock content %}
